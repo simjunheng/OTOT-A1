@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  web:
+    image: node:16
+    ports: 
+      - 4000:8080
+    volumes:
+      - C:\Users\sjh_9\Desktop\NUS Y3S1\CS3219 Software Engineering Principles\Assignments\OTOT-A1\app:/app
+    command: bash -c "cd app && npm install && node index.js"
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 3000:80
+    volumes:
+      - C:\Users\sjh_9\Desktop\NUS Y3S1\CS3219 Software Engineering Principles\Assignments\OTOT-A1\nginx\default.conf:/etc/nginx/conf.d/default.conf
